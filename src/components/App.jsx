@@ -1,16 +1,9 @@
+import { FeedbackOptionsV2 } from './FeedbackOptionsV2/FeedbackOptionsV2';
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
+    <div>
+      <FeedbackOptionsV2 />
     </div>
   );
 };
