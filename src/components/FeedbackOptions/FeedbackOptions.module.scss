@@ -1,0 +1,17 @@
+.optionBtn {
+  //   border: 3px;
+  //   border-color: black;
+  border-radius: 5px;
+  max-width: 80px;
+  height: 30px;
+  margin: 10px;
+  padding: 3px;
+  font-size: 20px;
+  text-align: center;
+  background-color: transparent;
+  line-height: 0;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 3px 1px 1px rgba(156, 134, 134, 0.7);
+  }
+}
