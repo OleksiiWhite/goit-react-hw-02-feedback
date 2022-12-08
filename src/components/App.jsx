@@ -7,14 +7,11 @@ import Notification from './Notification/Notification';
 import MyContainer from './MyContainer/MyContainer';
 
 export class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      good: 0,
-      neutral: 0,
-      bad: 0,
-    };
-  }
+  state = {
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  };
 
   countTotalFeedback = () => {
     return this.state.good + this.state.neutral + this.state.bad;
@@ -23,8 +20,6 @@ export class App extends Component {
   handleClick = e => {
     const { name } = e.target;
     this.setState(state => ({ [name]: state[name] + 1 }));
-    this.countTotalFeedback();
-    this.countPositiveFeedbackPercentage();
   };
 
   countPositiveFeedbackPercentage = () => {
@@ -38,26 +33,26 @@ export class App extends Component {
 
     return (
       <div>
-      <MyContainer>
-        <Section title="Please leave feedback">
-          <FeedbackOptions
-            options={this.state}
-            onLeaveFeedback={this.handleClick}
-          />
-          {total !== 0 ? (
-            <Statistics
-              good={good}
-              neutral={neutral}
-              bad={bad}
-              total={total}
-              positivePercentage={positiveFeedbackPercentage}
+        <MyContainer>
+          <Section title="Please leave feedback">
+            <FeedbackOptions
+              options={Object.keys(this.state)}
+              onLeaveFeedback={this.handleClick}
             />
-          ) : (
-            <Notification message="There is no feedback" />
-          )}
-        </Section>
+            {total !== 0 ? (
+              <Statistics
+                good={good}
+                neutral={neutral}
+                bad={bad}
+                total={total}
+                positivePercentage={positiveFeedbackPercentage}
+              />
+            ) : (
+              <Notification message="There is no feedback" />
+            )}
+          </Section>
         </MyContainer>
-        </div>
+      </div>
     );
   }
 }

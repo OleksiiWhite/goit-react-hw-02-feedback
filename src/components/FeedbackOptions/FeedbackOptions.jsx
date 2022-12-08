@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 import styles from './FeedbackOptions.module.css';
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => {
-  const arr = Object.keys(options);
-  console.log(arr);
-  return arr.map(a => {
+  return options.map(a => {
+    console.log(options);
     return (
       <button
         key={a}
@@ -14,14 +13,14 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
         name={a}
         onClick={onLeaveFeedback}
       >
-        {a === 'good' ? 'good' : a === 'neutral' ? 'neutral' : 'bad'}
+        {a}
       </button>
     );
   });
 };
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.object.isRequired,
+  options: PropTypes.array.isRequired,
   onLeaveFeedback: PropTypes.func.isRequired,
 };
 
